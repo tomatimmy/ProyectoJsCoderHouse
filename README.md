@@ -7,3 +7,5 @@ Pensar el alcance de tu proyecto: ¿usarás un cotizador de seguros? ¿un simula
 Armar la estructura HTML del proyecto.
 Incorporar lo ejercitado en las clases anteriores, algoritmo condicional y algoritmo con ciclo.
 Utilizar funciones para realizar esas operaciones.
+
+Prueba
