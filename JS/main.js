@@ -5,7 +5,6 @@
  //Declaramos funciones para comenzar el proceso y para saludar al usuario en caso que decida irse
  let capitalInicial = function() {
     let capital = parseInt(prompt('Para comenzar a ayudarte, decime con cuánto querés empezar a ahorrar: '));
-    if (capital != '') {
     if (isNaN(capital)) {
         console.log(capital)
         raton();
@@ -21,7 +20,6 @@
             }
         }
     }
- }
 }
 
 
