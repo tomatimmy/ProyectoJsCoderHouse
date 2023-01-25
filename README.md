@@ -7,3 +7,7 @@ Pensar el alcance de tu proyecto: ¿usarás un cotizador de seguros? ¿un simula
 Armar la estructura HTML del proyecto.
 Incorporar lo ejercitado en las clases anteriores, algoritmo condicional y algoritmo con ciclo.
 Utilizar funciones para realizar esas operaciones.
+
+---------------
+
+Por el momento el proyecto es una calculadora de interés compuesto, a futuro me gustaría incluír las opciones de cálculo de plazo fijo y cálculo de préstamo (sí, ser economista es aburrido, pero es lo que hay).
