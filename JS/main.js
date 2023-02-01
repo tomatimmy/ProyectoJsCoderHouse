@@ -33,6 +33,8 @@
  // K = capital inicial
  // i = interés
  // n = número de períodos
+
+
  let andaPallaBobo = function() {
     //la variable capital ya la tomo de la función capitalInicial (local)
     tasaInteres = parseInt(prompt('Ingrese la tasa de interés sin el signo %: '));
@@ -41,6 +43,7 @@
 
  }
 
+ 
  //Comenzamos con el analisis logico
  if (saludar === 'cat') {
     capitalInicial();
