@@ -11,7 +11,7 @@ let capitalInicial = function() {
     if ((capital == null) || (capital.toLowerCase() == 'salir')) {
         raton();
         break;
-    } else if (parseInt(capital) > 0) {
+    } else if (capital > 0) {
         arrayParametros.push(capital);
         tasaInteres();
         break;
@@ -43,7 +43,7 @@ let periodo = function() {
     if ((periodo == null) || (periodo.toLowerCase() == 'salir')) {
         raton();
         break;
-    } else if (parseInt(periodo) > 0) {
+    } else if (periodo > 0) {
         arrayParametros.push(periodo);
         break;
     } else {
