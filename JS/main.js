@@ -61,7 +61,7 @@ raton = () => alert('Nos vemos en Disney, ratónnn!');
 //Inicializamos un array vacío, en el cual serán "pusheados" los valores ingresados por el usuario para luego
 //ser asignados a las variables que componen la ecuación matemática de cálculo de interés compuesto
 
-arrayParametros = [];
+const arrayParametros = [];
 
 //Declaramos función para analizar el interés compuesto
 //TODOS: "-Ay, un economista, seguro que siempre es el alma de la fiesta.."
@@ -102,5 +102,5 @@ while (true) {
 
 if (arrayParametros.length == 3) {
 let final = andaPallaBobo()
-alert('Bueno, si me hacés caso y no gastás compulsivamente como Samu:\n\nCon una inversión de $' + arrayParametros[0] + ' Schmeckles, en ' + arrayParametros[2] + ' años, vas a tener $' + final.toFixed(2) + ' Schmeckles. Lo que factura Messi por minuto más o menos.\n\nANDA PALLA BOBO!!!');
+alert('Bueno, si me hacés caso y no gastás compulsivamente como Samu:\n\nCon una inversión de $' + arrayParametros[0] + ' Samuelines, en ' + arrayParametros[2] + ' años, vas a tener $' + final.toFixed(2) + ' Samuelines. Es decir, vas a ser $' + (final - arrayParametros[0]).toFixed(2) + ' Samuelines menos pobre. Lo que factura Messi cada vez que respira más o menos.\n\nANDA PALLA BOBO!!!');
 }
