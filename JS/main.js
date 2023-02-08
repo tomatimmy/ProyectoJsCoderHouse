@@ -1,8 +1,9 @@
-//Saludamos al usuario y preguntamos si quiere usar la herramienta obligandolo a darnos un input
+//Saludamos al usuario y preguntamos si quiere usar la herramienta obligandolo a darnos un input.
+
 let saludar = prompt('Bienvenido a CATculcalo! Si querés usar la calculadora de interés compuesto, escribí "cat". Si querés salir, escribí "bye". Algo tenés que escribir, loro: ');
 
 
-//Declaramos funciones para comenzar el proceso y para saludar al usuario en caso que decida irse
+//Declaramos funciones para comenzar el proceso y para saludar al usuario en caso que decida irse.
 
 let capitalInicial = function() {
     let capital = prompt('Para comenzar a ayudarte, decime con cuánto querés empezar a ahorrar: ');
@@ -54,7 +55,11 @@ let periodo = function() {
 
 
 //Declaramos función hippie porque es barata :)
+
 raton = () => alert('Nos vemos en Disney, ratónnn!');
+
+//Inicializamos un array vacío, en el cual serán "pusheados" los valores ingresados por el usuario para luego
+//ser asignados a las variables que componen la ecuación matemática de cálculo de interés compuesto
 
 arrayParametros = [];
 
@@ -79,8 +84,7 @@ let andaPallaBobo = function() {    //Le asignamos a las variables los valores i
 }
 
 
-
-//Comenzamos con el analisis logico
+//Comenzamos con el analisis lógico para la correcta ejecución del programa.
 
 while (true) {
     if (saludar == null || saludar.toLowerCase() == 'bye') {
@@ -95,6 +99,7 @@ while (true) {
 }
 
 //Definimos que vamos a mostrar el resultado sí y sólo sí el usuario ingresó los 3 valores necesarios.
+
 if (arrayParametros.length == 3) {
 let final = andaPallaBobo()
 alert('Bueno, si me hacés caso y no gastás compulsivamente como Samu:\n\nCon una inversión de $' + arrayParametros[0] + ' Schmeckles, en ' + arrayParametros[2] + ' años, vas a tener $' + final.toFixed(2) + ' Schmeckles. Lo que factura Messi por minuto más o menos.\n\nANDA PALLA BOBO!!!');
