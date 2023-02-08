@@ -45,7 +45,6 @@ let periodo = function() {
         break;
     } else if (parseInt(periodo) > 0) {
         arrayParametros.push(periodo);
-        andaPallaBobo;
         break;
     } else {
         periodo = prompt('Que difícil me la estás haciendo.\nAÑOS NABO!\nES UN PERIODO DE TIEMPO!!! \n\nSi querés seguir siendo pobre, escribí salir, presioná ESC o dale a cancelar. Amargo.');
