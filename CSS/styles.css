@@ -53,10 +53,8 @@ form {
     flex-direction: column;
     justify-content: left;
     align-items: left;
-    /* max-width: 50vw; */
 }
 
 .botones {
     max-width: 100px;
 }
-
