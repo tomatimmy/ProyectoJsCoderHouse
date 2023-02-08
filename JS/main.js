@@ -15,7 +15,7 @@ let capitalInicial = function() {
         tasaInteres();
         break;
     } else {
-        capital = prompt('Tiene que ser un número, y tiene que ser mayor que cero.. "genio".\n\nSi querés seguir siendo pobre, escribí salir, presiona ESC o dale a cancelar. Amargo.');
+        capital = prompt('Tiene que ser un número, y tiene que ser mayor que cero.. "genio".\n\nSi querés seguir siendo pobre, escribí salir, presioná ESC o dale a cancelar. Amargo.');
     }
     }
 }
@@ -31,7 +31,7 @@ let tasaInteres = function() {
         periodo();
         break;
     } else {
-        tasaInteres = prompt('Se nota que no entendés bien el espanish.\nUN NUMERO POSITIVO SIN SIGNO "%". \n\nSi querés seguir siendo pobre, escribí salir, presiona ESC o dale a cancelar. Amargo.');
+        tasaInteres = prompt('Se nota que no entendés bien el espanish.\nUN NUMERO POSITIVO SIN SIGNO "%". \n\nSi querés seguir siendo pobre, escribí salir, presioná ESC o dale a cancelar. Amargo.');
     }
     }
 }
@@ -47,19 +47,19 @@ let periodo = function() {
         andaPallaBobo;
         break;
     } else {
-        periodo = prompt('Que difícil me la estás haciendo.\nAÑOS NABO!\nES UN PERIODO DE TIEMPO!!! \n\nSi querés seguir siendo pobre, escribí salir, presiona ESC o dale a cancelar. Amargo.');
+        periodo = prompt('Que difícil me la estás haciendo.\nAÑOS NABO!\nES UN PERIODO DE TIEMPO!!! \n\nSi querés seguir siendo pobre, escribí salir, presioná ESC o dale a cancelar. Amargo.');
     }
     }
 }
 
 
-//Declaramos función hippie
+//Declaramos función hippie porque es barata :)
 raton = () => alert('Nos vemos en Disney, ratónnn!');
 
 arrayParametros = [];
 
 //Declaramos función para analizar el interés compuesto
-//TODOS: "-Ay, un economista, seguro que es el alma de la fiesta.."
+//TODOS: "-Ay, un economista, seguro que siempre es el alma de la fiesta.."
 
 //Fórmula interés compuesto (obtenida en gerencie.com)
 // K * (1+i) ^ n
@@ -71,8 +71,8 @@ arrayParametros = [];
 // -Ingresar un refuerzo mensual de capital
 // -Mostrar los intereses obtenidos en forma mensual, trimestral, semestral y anual :)
 
-let andaPallaBobo = function() {    
-    let k = arrayParametros[0];
+let andaPallaBobo = function() {    //Le asignamos a las variables los valores ingresados por el usuario
+    let k = arrayParametros[0];     //mediante prompt.
     let i = arrayParametros[1];
     let n = arrayParametros[2];
     return k * Math.pow(1 + i / 100, n);
@@ -94,7 +94,8 @@ while (true) {
     }
 }
 
+//Definimos que vamos a mostrar el resultado sí y sólo sí el usuario ingresó los 3 valores necesarios.
 if (arrayParametros.length == 3) {
 let final = andaPallaBobo()
-alert('Bueno, si me hacés caso y no gastás compulsivamente como Samu:\n\nCon una inversión de $' + arrayParametros[0] + ' schmeckles, en ' + arrayParametros[2] + ' años, vas a tener $' + final.toFixed(2) + ' Schmeckles. Lo que factura Messi por minuto más o menos.\n\nANDA PALLA BOBO!!!');
+alert('Bueno, si me hacés caso y no gastás compulsivamente como Samu:\n\nCon una inversión de $' + arrayParametros[0] + ' Schmeckles, en ' + arrayParametros[2] + ' años, vas a tener $' + final.toFixed(2) + ' Schmeckles. Lo que factura Messi por minuto más o menos.\n\nANDA PALLA BOBO!!!');
 }
