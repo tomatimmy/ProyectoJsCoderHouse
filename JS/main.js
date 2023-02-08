@@ -63,6 +63,18 @@ raton = () => alert('Nos vemos en Disney, ratónnn!');
 
 const arrayParametros = [];
 
+
+//Definimos la clase para crear el objeto en función al array 
+
+class Calculadora {
+    constructor(capital, interes, periodo) {
+        this.capital = capital;
+        this.interes = interes;
+        this.periodo = periodo;
+    }
+}
+
+
 //Declaramos función para analizar el interés compuesto
 //TODOS: "-Ay, un economista, seguro que siempre es el alma de la fiesta.."
 
@@ -77,9 +89,9 @@ const arrayParametros = [];
 // -Mostrar los intereses obtenidos en forma mensual, trimestral, semestral y anual :)
 
 let andaPallaBobo = function() {    //Le asignamos a las variables los valores ingresados por el usuario
-    let k = arrayParametros[0];     //mediante prompt.
-    let i = arrayParametros[1];
-    let n = arrayParametros[2];
+    let k = primerCalculo.capital;     //mediante prompt que fueron pasados desde el Array al Objeto
+    let i = primerCalculo.interes;
+    let n = primerCalculo.periodo;
     return k * Math.pow(1 + i / 100, n);
 }
 
@@ -98,9 +110,15 @@ while (true) {
     }
 }
 
+
+//Creamos el objeto con los valores que tomamos del Array
+
+const primerCalculo = new Calculadora(arrayParametros[0], arrayParametros[1], arrayParametros[2])
+
+
 //Definimos que vamos a mostrar el resultado sí y sólo sí el usuario ingresó los 3 valores necesarios.
 
 if (arrayParametros.length == 3) {
 let final = andaPallaBobo()
-alert('Bueno, si me hacés caso y no gastás compulsivamente como Samu:\n\nCon una inversión de $' + arrayParametros[0] + ' Samuelines, en ' + arrayParametros[2] + ' años, vas a tener $' + final.toFixed(2) + ' Samuelines. Es decir, vas a ser $' + (final - arrayParametros[0]).toFixed(2) + ' Samuelines menos pobre. Lo que factura Messi cada vez que respira más o menos.\n\nANDA PALLA BOBO!!!');
+alert('Bueno, si me hacés caso y no gastás compulsivamente como Samu:\n\nCon una inversión de $' + primerCalculo.capital + ' Samuelines, en ' + primerCalculo.periodo + ' años, vas a tener $' + final.toFixed(2) + ' Samuelines. Es decir, vas a ser $' + (final - primerCalculo.capital).toFixed(2) + ' Samuelines menos pobre. Lo que factura Messi cada vez que respira más o menos.\n\nANDA PALLA BOBO!!!');
 }
