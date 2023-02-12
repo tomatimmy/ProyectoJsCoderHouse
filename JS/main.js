@@ -118,6 +118,9 @@ const primerCalculo = new Calculadora(arrayParametros[0], arrayParametros[1], ar
 //Definimos que vamos a mostrar el resultado sí y sólo sí el usuario ingresó los 3 valores necesarios.
 
 if (arrayParametros.length == 3) {
-let final = andaPallaBobo()
-alert('Bueno, si me hacés caso y no gastás compulsivamente como Samu:\n\nCon una inversión de $' + primerCalculo.capital + ' Samuelines, en ' + primerCalculo.periodo + ' años, vas a tener $' + final.toFixed(2) + ' Samuelines. Es decir, vas a ser $' + (final - primerCalculo.capital).toFixed(2) + ' Samuelines menos pobre. Lo que factura Messi cada vez que respira más o menos.\n\nANDA PALLA BOBO!!!');
+    arrayParametros.forEach((parametro) => { // esta funcion de orden superior la agregue despues de entregar
+        console.log('Ingresaste: ' + parametro); //porque pense que era opcional pero me di cuenta que suma puntos como desafio
+    })
+    let final = andaPallaBobo()
+    alert('Bueno, si me hacés caso y no gastás compulsivamente como Samu:\n\nCon una inversión de $' + primerCalculo.capital + ' Samuelines, en ' + primerCalculo.periodo + ' años, vas a tener $' + final.toFixed(2) + ' Samuelines. Es decir, vas a ser $' + (final - primerCalculo.capital).toFixed(2) + ' Samuelines menos pobre. Lo que factura Messi cada vez que respira más o menos.\n\nANDA PALLA BOBO!!!');
 }
