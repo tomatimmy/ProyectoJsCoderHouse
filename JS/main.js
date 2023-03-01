@@ -38,7 +38,7 @@ formulario.addEventListener("submit", (e) => {
     final = final.toFixed(2);
 
     Toastify( {
-        text: "Calculanding...",
+        text: "CATculado!",
         duration: 3000, 
         gravity: "top",
         position: "right", 
