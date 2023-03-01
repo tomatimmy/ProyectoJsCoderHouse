@@ -1,70 +1,3 @@
-//Saludamos al usuario y preguntamos si quiere usar la herramienta obligandolo a darnos un input.
-
-let saludar = prompt('Bienvenido a CATculcalo! Si querés usar la calculadora de interés compuesto, escribí "cat". Si querés salir, escribí "bye". Algo tenés que escribir, loro: ');
-
-
-//Declaramos funciones para comenzar el proceso y para saludar al usuario en caso que decida irse.
-
-let capitalInicial = function() {
-    let capital = prompt('Para comenzar a ayudarte, decime con cuánto querés empezar a ahorrar: ');
-    while (true) {
-    if ((capital == null) || (capital.toLowerCase() == 'salir')) {
-        raton();
-        break;
-    } else if (capital > 0) {
-        arrayParametros.push(capital);
-        tasaInteres();
-        break;
-    } else {
-        capital = prompt('Tiene que ser un número, y tiene que ser mayor que cero.. "genio".\n\nSi querés seguir siendo pobre, escribí salir, presioná ESC o dale a cancelar. Amargo.');
-    }
-    }
-}
-
-let tasaInteres = function() {
-    let tasaInteres = prompt('A qué tasa de interés querés que haga mi magia? \nNo pongas el % y que sea un número positivo, crack: ');
-    while (true) {
-    if ((tasaInteres == null) || (tasaInteres.toLowerCase() == 'salir')) {
-        raton();
-        break;
-    } else if (tasaInteres > 0) {
-        arrayParametros.push(tasaInteres);
-        periodo();
-        break;
-    } else {
-        tasaInteres = prompt('Se nota que no entendés bien el espanish.\nUN NUMERO POSITIVO SIN SIGNO "%". \n\nSi querés seguir siendo pobre, escribí salir, presioná ESC o dale a cancelar. Amargo.');
-    }
-    }
-}
-
-let periodo = function() {
-    let periodo = prompt('En cuántos años querés que te haga millonario?');
-    while (true) {
-    if ((periodo == null) || (periodo.toLowerCase() == 'salir')) {
-        raton();
-        break;
-    } else if (periodo > 0) {
-        arrayParametros.push(periodo);
-        break;
-    } else {
-        periodo = prompt('Que difícil me la estás haciendo.\nAÑOS NABO!\nES UN PERIODO DE TIEMPO!!! \n\nSi querés seguir siendo pobre, escribí salir, presioná ESC o dale a cancelar. Amargo.');
-    }
-    }
-}
-
-
-//Declaramos función hippie porque es barata :)
-
-raton = () => alert('Nos vemos en Disney, ratónnn!');
-
-//Inicializamos un array vacío, en el cual serán "pusheados" los valores ingresados por el usuario para luego
-//ser asignados a las variables que componen la ecuación matemática de cálculo de interés compuesto
-
-const arrayParametros = [];
-
-
-//Definimos la clase para crear el objeto en función al array 
-
 class Calculadora {
     constructor(capital, interes, periodo) {
         this.capital = capital;
@@ -74,53 +7,82 @@ class Calculadora {
 }
 
 
-//Declaramos función para analizar el interés compuesto
-//TODOS: "-Ay, un economista, seguro que siempre es el alma de la fiesta.."
-
-//Fórmula interés compuesto (obtenida en gerencie.com)
-// K * (1+i) ^ n
-// K = capital inicial
-// i = interés (porcentual)
-// n = número de períodos (en este caso, años)
-
-// En un futuro no tan lejano, la calculadora va a permitir:
-// -Ingresar un refuerzo mensual de capital
-// -Mostrar los intereses obtenidos en forma mensual, trimestral, semestral y anual :)
-
-let andaPallaBobo = function() {    //Le asignamos a las variables los valores ingresados por el usuario
-    let k = primerCalculo.capital;     //mediante prompt que fueron pasados desde el Array al Objeto
-    let i = primerCalculo.interes;
-    let n = primerCalculo.periodo;
-    return k * Math.pow(1 + i / 100, n);
-}
+const formulario = document.getElementById("formulario");
 
 
-//Comenzamos con el analisis lógico para la correcta ejecución del programa.
+formulario.addEventListener("submit", (e) => {
 
-while (true) {
-    if (saludar == null || saludar.toLowerCase() == 'bye') {
-        raton();
-        break;
-    } else if (saludar.toLowerCase() === 'cat') {
-        capitalInicial();
-        break;
-    } else {
-        saludar = prompt('No entendiste, no? "cat" para empezar, "bye" para salir. Genio.');
+    e.preventDefault();
+
+    const capitalInicial = document.getElementById("capitalInicial");
+    const tasaInteres = document.getElementById("tasaInteres");
+    const periodo = document.getElementById("periodo");
+
+    const calcular = new Calculadora(capitalInicial.value, tasaInteres.value, periodo.value);
+    const calcularJSON = JSON.stringify(calcular);
+    localStorage.setItem("Valores", calcularJSON);
+    // Por el workflow de la app, no resulta necesario recuperar el Json, será limpiada al realizar
+    // un nuevo cálculo o al presionar restablecer.
+
+
+    let andaPallaBobo = function() {
+        let k = parseInt(calcular.capital);
+        let i = parseInt(calcular.interes);
+        let n = parseInt(calcular.periodo);
+        return k * Math.pow(1 + i / 100, n);
+
+
     }
-}
 
+    let final = andaPallaBobo();
+    final = final.toFixed(2);
 
-//Creamos el objeto con los valores que tomamos del Array
+    Toastify( {
+        text: "Calculanding...",
+        duration: 3000, 
+        gravity: "top",
+        position: "right", 
+        style: {
+            background: "gray",
+        }
+    }).showToast();
+    
+    const divResultado = document.getElementById('resultado');
 
-const primerCalculo = new Calculadora(arrayParametros[0], arrayParametros[1], arrayParametros[2])
+    if (calcular.capital !== '' && calcular.interes !== '' && calcular.periodo !== '') {
+        divResultado.innerHTML = `<p>Bueno, si me haces caso y no gastas en tonterías como Samu, con $${calcular.capital}
+        Samuelines de inversión incial, en ${calcular.periodo} años, a una tasa de interés del ${calcular.interes}%, vas
+        a tener: $${final} Samuelines. Es decir, vas a seguir siendo pobre, pero no tanto. Gracias por participar.</p>`;
+    } else {
+        divResultado.innerHTML = `<p>Por favor rellená todos los campos para poder realizar el cálculo en forma eficiente.</p>`;
+        Toastify( {
+            text: "TE FALTAN VALORES AMIGO!",
+            duration: 3000, 
+            gravity: "top",
+            position: "right", 
+            style: {
+                background: "gray",
+            }
+        }).showToast();
+        localStorage.clear();
+    }
 
+    formulario.reset();
+})
 
-//Definimos que vamos a mostrar el resultado sí y sólo sí el usuario ingresó los 3 valores necesarios.
+const restablecer = document.getElementById('restablecer');
 
-if (arrayParametros.length == 3) {
-    arrayParametros.forEach((parametro) => { // esta funcion de orden superior la agregue despues de entregar
-        console.log('Ingresaste: ' + parametro); //porque pense que era opcional pero me di cuenta que suma puntos como desafio
-    })
-    let final = andaPallaBobo()
-    alert('Bueno, si me hacés caso y no gastás compulsivamente como Samu:\n\nCon una inversión de $' + primerCalculo.capital + ' Samuelines, en ' + primerCalculo.periodo + ' años, vas a tener $' + final.toFixed(2) + ' Samuelines. Es decir, vas a ser $' + (final - primerCalculo.capital).toFixed(2) + ' Samuelines menos pobre. Lo que factura Messi cada vez que respira más o menos.\n\nANDA PALLA BOBO!!!');
-}
+restablecer.addEventListener("click", () => {
+    const divResultado = document.getElementById('resultado');
+    divResultado.innerHTML = '';
+    localStorage.clear();
+    Toastify( {
+        text: "Restableciendo...",
+        duration: 3000, 
+        gravity: "top",
+        position: "right", 
+        style: {
+            background: "gray",
+        }
+    }).showToast();
+})

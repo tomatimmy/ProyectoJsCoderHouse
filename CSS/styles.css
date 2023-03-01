@@ -58,3 +58,21 @@ form {
 .botones {
     max-width: 100px;
 }
+
+.resultado {
+    margin-top:30px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    background: #4d6bdd;
+    box-shadow: 0 8px 20px rgb(77 107 221 / 20%);
+    border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+.resultado p {
+    text-align: justify;
+    margin: 10px;
+}
