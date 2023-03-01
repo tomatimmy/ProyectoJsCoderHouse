@@ -38,7 +38,7 @@ formulario.addEventListener("submit", (e) => {
     final = final.toFixed(2);
 
     Toastify( {
-        text: "CATculado!",
+        text: "Calculanding...",
         duration: 3000, 
         gravity: "top",
         position: "right", 
@@ -77,7 +77,7 @@ restablecer.addEventListener("click", () => {
     divResultado.innerHTML = '';
     localStorage.clear();
     Toastify( {
-        text: "Restableciendo...",
+        text: "Restableciendo..",
         duration: 3000, 
         gravity: "top",
         position: "right", 
@@ -86,3 +86,7 @@ restablecer.addEventListener("click", () => {
         }
     }).showToast();
 })
+
+const ternera = (1 == 1) ? true : false
+ternera ? console.log("Jaque mate, careta!") : console.log("Esta línea nunca será impresa.")
+
