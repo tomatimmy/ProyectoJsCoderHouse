@@ -3,6 +3,9 @@ const divResultado = document.getElementById('resultado');
 const divHistorial = document.getElementById('divHistorial');
 const tituloHistorial = document.getElementById('tituloHistorial');
 const verHistorial = document.getElementById('verHistorial');
+const capitalInicial = document.getElementById("capitalInicial");
+const tasaInteres = document.getElementById("tasaInteres");
+const periodo = document.getElementById("periodo");
 
 arrayValores = [];
 arrayResultados = [];
@@ -30,10 +33,6 @@ formulario.addEventListener("submit", (e) => {
 
     e.preventDefault();
 
-    const capitalInicial = document.getElementById("capitalInicial");
-    const tasaInteres = document.getElementById("tasaInteres");
-    const periodo = document.getElementById("periodo");
-
     const calcular = new Calculadora(capitalInicial.value, tasaInteres.value, periodo.value);
     arrayValores.push(calcular);
     localStorage.setItem("Valores", JSON.stringify(arrayValores));
@@ -48,8 +47,6 @@ formulario.addEventListener("submit", (e) => {
     let final = calculoIntComp();
     final = final.toFixed(2);
     arrayResultados.push(final);
-
-    const divResultado = document.getElementById('resultado');
 
     if (calcular.capital !== '' && calcular.interes !== '' && calcular.periodo !== '') {
         Toastify({
@@ -77,6 +74,7 @@ formulario.addEventListener("submit", (e) => {
             }
         }).showToast();
         arrayResultados = [];
+        arrayValores = [];
         localStorage.clear();
     }
 
