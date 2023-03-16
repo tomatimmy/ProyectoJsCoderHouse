@@ -95,3 +95,5 @@ restablecer.addEventListener("click", () => {
 
 const verHistorial = document.getElementById('verHistorial');
 
+
+
