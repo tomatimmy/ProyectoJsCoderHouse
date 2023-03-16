@@ -4,6 +4,9 @@ const divHistorial = document.getElementById('divHistorial');
 const tituloHistorial = document.getElementById('tituloHistorial');
 const verHistorial = document.getElementById('verHistorial');
 
+arrayValores = [];
+arrayResultados = [];
+
 class Calculadora {
     constructor(capital, interes, periodo) {
         this.capital = capital;
@@ -22,10 +25,6 @@ fetch('opciones.json')
             datalist.appendChild(opcion);
         });
     })
-
-
-arrayValores = [];
-arrayResultados = [];
 
 formulario.addEventListener("submit", (e) => {
 
