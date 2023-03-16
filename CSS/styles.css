@@ -76,3 +76,9 @@ form {
     text-align: justify;
     margin: 10px;
 }
+
+.botonHistorial {
+    width: 100px;
+    display:none;
+    text-align: center;
+}
