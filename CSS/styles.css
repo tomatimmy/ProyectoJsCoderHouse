@@ -97,6 +97,11 @@ form {
     color: white;
 }
 
+.historial p {
+    text-align: justify;
+    margin: 10px;
+}
+
 #tituloHistorial {
     display: none;
 }

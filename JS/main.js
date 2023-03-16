@@ -1,4 +1,8 @@
 const formulario = document.getElementById("formulario");
+const divResultado = document.getElementById('resultado');
+const divHistorial = document.getElementById('divHistorial');
+const tituloHistorial = document.getElementById('tituloHistorial');
+const verHistorial = document.getElementById('verHistorial');
 
 class Calculadora {
     constructor(capital, interes, periodo) {
@@ -74,6 +78,7 @@ formulario.addEventListener("submit", (e) => {
             }
         }).showToast();
         arrayResultados = [];
+        localStorage.clear();
     }
 
     formulario.reset();
@@ -91,19 +96,14 @@ restablecer.addEventListener("click", () => {
             background: "gray",
         }
     }).showToast();
-    const divResultado = document.getElementById('resultado');
-    const divHistorial = document.getElementById('divHistorial');
-    const tituloHistorial = document.getElementById('tituloHistorial');
     divResultado.innerHTML = '';
     divHistorial.innerHTML = '';
     tituloHistorial.style.display = 'none';
+    verHistorial.style.display = 'none';
     localStorage.clear();
     arrayValores = [];
+    arrayResultados = [];
 })
-
-const verHistorial = document.getElementById('verHistorial');
-const divHistorial = document.getElementById('divHistorial');
-const tituloHistorial = document.getElementById('tituloHistorial');
 
 verHistorial.addEventListener("click", () => {
     tituloHistorial.style.display = 'block';
@@ -113,8 +113,7 @@ verHistorial.addEventListener("click", () => {
     i = 0;
     historial.forEach(valor => {
         const div = document.createElement('div');
-        div.innerHTML = `<p>El valor ${contadorPosicion} de capital ingresado ha sido $${valor.capital},
-        en un periodo de ${valor.periodo} años, a una tasa de interés del ${valor.interes}%, obteniendo un resultado final de $${arrayResultados[i]} Samuelines.</p>`;
+        div.innerHTML = `<p>La consulta nro. ${contadorPosicion} ha sido realizada con los siguientes valores: Capital: $${valor.capital}, Periodo: ${valor.periodo} años, Tasa: ${valor.interes}%, obteniendo un resultado final de $${arrayResultados[i]} Samuelines.</p>`;
         contadorPosicion++;
         i++;
         divHistorial.appendChild(div);
