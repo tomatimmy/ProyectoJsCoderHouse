@@ -95,7 +95,7 @@ restablecer.addEventListener("click", () => {
     const divHistorial = document.getElementById('divHistorial');
     const tituloHistorial = document.getElementById('tituloHistorial');
     divResultado.innerHTML = '';
-    divHistorial.innterHTML = '';
+    divHistorial.innerHTML = '';
     tituloHistorial.style.display = 'none';
     localStorage.clear();
     arrayValores = [];

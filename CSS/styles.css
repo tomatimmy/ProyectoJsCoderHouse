@@ -82,3 +82,21 @@ form {
     display:none;
     text-align: center;
 }
+
+.historial {
+    margin-top: 30px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    background: #4d6bdd;
+    box-shadow: 0 8px 20px rgb(77 107 221 / 20%);
+    border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+#tituloHistorial {
+    display: none;
+}
