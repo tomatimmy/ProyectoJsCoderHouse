@@ -35,24 +35,17 @@
         <label for="capitalInicial">Capital inicial:</label>
         <input type="number" id="capitalInicial" name="capital_inicial">
         <br>
-<!--         <label for="refuerzoMensual">Refuerzo mensual:</label>
-        <input type="number" id="refuerzoMensual" name="refuerzo_mensual">
-        <br> -->
         <label for="periodo">Periodo de inversión (en años):</label>
-        <input type="number" id="periodo" name="periodo">
+        <input type="text" list="opciones" id="periodo" name="periodo">
+        <datalist id="opciones">
+
+        </datalist>
         <br>
         <label for="tasaInteres">Tasa de interés anual:</label>
         <input type="number" id="tasaInteres" name="tasa_interes">
         <br>
-        <!--<label for="calculo">Cálculo de interés:</label>
-   			<select id="calculo" name="calculo">
-  				<option value="mensual">Mensual</option>
-  				<option value="trimestral">Trimestral</option>
-  				<option value="semestral">Semestral</option>
-  				<option value="anual">Anual</option>
-  			</select> -->
         <br>
-        <input class="botones" type="submit" value="Calcular">
+        <input class="botones" type="submit" value="CATcular">
           <br>
         <input class="botones" type="reset" id="restablecer">
       </form>
@@ -61,8 +54,6 @@
     <script src="/JS/main.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   </main>
-  <footer>
-    <!-- Aca iria el footer -->
-  </footer>
+  <footer></footer>
 </body>
 </html>
