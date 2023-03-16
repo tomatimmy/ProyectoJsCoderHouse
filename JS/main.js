@@ -21,6 +21,7 @@ fetch('opciones.json')
 
 
 arrayValores = [];
+arrayResultados = [];
 
 formulario.addEventListener("submit", (e) => {
 
@@ -43,6 +44,7 @@ formulario.addEventListener("submit", (e) => {
 
     let final = calculoIntComp();
     final = final.toFixed(2);
+    arrayResultados.push(final);
 
     const divResultado = document.getElementById('resultado');
 
@@ -71,6 +73,7 @@ formulario.addEventListener("submit", (e) => {
                 background: "gray",
             }
         }).showToast();
+        arrayResultados = [];
     }
 
     formulario.reset();
@@ -89,11 +92,33 @@ restablecer.addEventListener("click", () => {
         }
     }).showToast();
     const divResultado = document.getElementById('resultado');
+    const divHistorial = document.getElementById('divHistorial');
+    const tituloHistorial = document.getElementById('tituloHistorial');
     divResultado.innerHTML = '';
+    divHistorial.innterHTML = '';
+    tituloHistorial.style.display = 'none';
     localStorage.clear();
+    arrayValores = [];
 })
 
 const verHistorial = document.getElementById('verHistorial');
+const divHistorial = document.getElementById('divHistorial');
+const tituloHistorial = document.getElementById('tituloHistorial');
 
-
+verHistorial.addEventListener("click", () => {
+    tituloHistorial.style.display = 'block';
+    divHistorial.innerHTML = '';
+    let historial = JSON.parse(localStorage.getItem('Valores'));
+    contadorPosicion = 1;
+    i = 0;
+    historial.forEach(valor => {
+        const div = document.createElement('div');
+        div.innerHTML = `<p>El valor ${contadorPosicion} de capital ingresado ha sido $${valor.capital},
+        en un periodo de ${valor.periodo} años, a una tasa de interés del ${valor.interes}%, obteniendo un resultado final de $${arrayResultados[i]} Samuelines.</p>`;
+        contadorPosicion++;
+        i++;
+        divHistorial.appendChild(div);
+    })
+    divHistorial.style.display = 'flex';
+})
 
