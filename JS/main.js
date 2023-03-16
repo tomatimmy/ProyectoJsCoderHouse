@@ -6,6 +6,7 @@ const verHistorial = document.getElementById('verHistorial');
 const capitalInicial = document.getElementById("capitalInicial");
 const tasaInteres = document.getElementById("tasaInteres");
 const periodo = document.getElementById("periodo");
+const restablecer = document.getElementById('restablecer');
 
 arrayValores = [];
 arrayResultados = [];
@@ -80,8 +81,6 @@ formulario.addEventListener("submit", (e) => {
 
     formulario.reset();
 })
-
-const restablecer = document.getElementById('restablecer');
 
 restablecer.addEventListener("click", () => {
     Toastify( {
