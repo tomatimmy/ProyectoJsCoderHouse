@@ -20,6 +20,7 @@ fetch('opciones.json')
     })
 
 
+arrayValores = [];
 
 formulario.addEventListener("submit", (e) => {
 
@@ -30,8 +31,8 @@ formulario.addEventListener("submit", (e) => {
     const periodo = document.getElementById("periodo");
 
     const calcular = new Calculadora(capitalInicial.value, tasaInteres.value, periodo.value);
-    const calcularJSON = JSON.stringify(calcular);
-    localStorage.setItem("Valores", calcularJSON);
+    arrayValores.push(calcular);
+    localStorage.setItem("Valores", JSON.stringify(arrayValores));
 
     const calculoIntComp = function () {
         let k = parseInt(calcular.capital);
