@@ -6,6 +6,7 @@ const verHistorial = document.getElementById('verHistorial');
 const capitalInicial = document.getElementById("capitalInicial");
 const tasaInteres = document.getElementById("tasaInteres");
 const periodo = document.getElementById("periodo");
+const calcularBtn = document.getElementById('calcular');
 const restablecer = document.getElementById('restablecer');
 
 arrayValores = [];
@@ -74,6 +75,8 @@ formulario.addEventListener("submit", (e) => {
                 background: "gray",
             }
         }).showToast();
+        verHistorial.style.display = 'none';
+        calcularBtn.style.display = 'none';
         arrayResultados = [];
         arrayValores = [];
         localStorage.clear();
@@ -96,6 +99,8 @@ restablecer.addEventListener("click", () => {
     divHistorial.innerHTML = '';
     tituloHistorial.style.display = 'none';
     verHistorial.style.display = 'none';
+    verHistorial.style.display = 'block';
+    calcularBtn.style.display = 'block';
     localStorage.clear();
     arrayValores = [];
     arrayResultados = [];
