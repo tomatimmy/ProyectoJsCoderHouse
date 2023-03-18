@@ -11,6 +11,7 @@ const restablecer = document.getElementById('restablecer');
 
 arrayValores = [];
 arrayResultados = [];
+arrayJSON = [];
 
 class Calculadora {
     constructor(capital, interes, periodo) {
@@ -27,7 +28,27 @@ fetch('opciones.json')
         data.forEach(item => {
             const opcion = document.createElement('option');
             opcion.text = item.text;
+            arrayJSON.push(item.text);
             datalist.appendChild(opcion);
+        });
+        periodo.addEventListener("input", function() {
+            const valor = periodo.value;
+            if (arrayJSON.includes(valor)) {
+                periodo.setCustomValidity('');
+            } else {
+                Toastify({
+                    text: "Valor inválido. Elija un valor del menú desplegable.",
+                    duration: 5000,
+                    gravity: "top",
+                    position: "right",
+                    style: {
+                        background: "red",
+                    }
+                }).showToast();
+                setTimeout(function() {
+                    periodo.value = "";}, 1000);
+                 
+            }
         });
     })
 
