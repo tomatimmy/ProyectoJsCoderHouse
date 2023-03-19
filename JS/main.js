@@ -51,6 +51,7 @@ fetch('opciones.json')
             }
         });
     })
+    .catch(error => console.log(error));
 
 formulario.addEventListener("submit", (e) => {
 
